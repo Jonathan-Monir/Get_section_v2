@@ -32,7 +32,6 @@ def get_name(section_list):
 
 def make_schedule(section_names):
     all_sections = list()
-    print("hereeee", section_names)
     for word in section_names:
         if len(word) > 0:
             for i in df.columns:
