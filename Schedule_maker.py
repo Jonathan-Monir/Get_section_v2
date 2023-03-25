@@ -130,7 +130,7 @@ if st.button("Submit"):
                             gadwal_el_sacation = list()
                             for i in text:
                                 if name in i:
-                                    print(name)
+                                    print(i)
                                     if count_names == 0:
                                         _=0
                                     count_names += 1
