@@ -99,7 +99,6 @@ if st.button("Submit"):
         st.error("Please enter your name")
     else:
         print("***********************************")
-        st.sidebar.write("Name entered: ", name)
         st.success(f"Hello {name}")
         st.write("This may take 1 or 2 minutes...")
         all_sections = list()
@@ -130,7 +129,6 @@ if st.button("Submit"):
                             gadwal_el_sacation = list()
                             for i in text:
                                 if name in i:
-                                    print(i)
                                     if count_names == 0:
                                         _=0
                                     count_names += 1
