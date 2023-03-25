@@ -185,9 +185,10 @@ if st.button("Submit"):
 
 
             datasets=make_schedule(get_name(all_sections))
-            
-            combined_dataset=pd.concat(datasets)
-
+            try:
+                combined_dataset = pd.concat(datasets)
+            except ValueError:
+                pass
             combined_dataset = combined_dataset.T
             first_column = combined_dataset.columns[0]
             combined_dataset = combined_dataset.sort_index(axis=1, level=0)
