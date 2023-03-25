@@ -187,26 +187,28 @@ if st.button("Submit"):
             datasets=make_schedule(get_name(all_sections))
             try:
                 combined_dataset = pd.concat(datasets)
+                
+                
+                combined_dataset = combined_dataset.T
+                first_column = combined_dataset.columns[0]
+                combined_dataset = combined_dataset.sort_index(axis=1, level=0)
+                combined_dataset = combined_dataset.sort_index(axis=1)
+                combined_dataset = combined_dataset.T
+
+                combined_dataset = combined_dataset.set_index(['Day', 'Place'])
+
+                combined_dataset = combined_dataset.loc[pd.Categorical(combined_dataset.index.get_level_values('Day'),
+                                        categories=['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                                        ordered=True)]
+
+                combined_dataset.drop_duplicates(inplace=True)
+                combined_dataset.fillna('',inplace=True)
+                st.dataframe(combined_dataset)
+                
+                csv = combined_dataset.to_csv()
+                b64 = base64.b64encode(csv.encode()).decode()
+                href = f'<a href="data:file/csv;base64,{b64}" download="data.csv">Download CSV file</a>'
+                st.markdown(href, unsafe_allow_html=True)
             except ValueError:
                 pass
-            combined_dataset = combined_dataset.T
-            first_column = combined_dataset.columns[0]
-            combined_dataset = combined_dataset.sort_index(axis=1, level=0)
-            combined_dataset = combined_dataset.sort_index(axis=1)
-            combined_dataset = combined_dataset.T
-
-            combined_dataset = combined_dataset.set_index(['Day', 'Place'])
-
-            combined_dataset = combined_dataset.loc[pd.Categorical(combined_dataset.index.get_level_values('Day'),
-                                    categories=['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                                    ordered=True)]
-
-            combined_dataset.drop_duplicates(inplace=True)
-            combined_dataset.fillna('',inplace=True)
-            st.dataframe(combined_dataset)
-            
-            csv = combined_dataset.to_csv()
-            b64 = base64.b64encode(csv.encode()).decode()
-            href = f'<a href="data:file/csv;base64,{b64}" download="data.csv">Download CSV file</a>'
-            st.markdown(href, unsafe_allow_html=True)
             
