@@ -210,5 +210,5 @@ if st.button("Submit"):
                 href = f'<a href="data:file/csv;base64,{b64}" download="data.csv">Download CSV file</a>'
                 st.markdown(href, unsafe_allow_html=True)
             except ValueError:
-                pass
+                print("error name")
             
