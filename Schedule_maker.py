@@ -181,7 +181,7 @@ if st.button("Submit"):
                         elif count_names==0:
                             st.error("no name found in {}".format(file.strip(".pdf")))
                         
-                    pdf_file.close()
+                        pdf_file.close()
 
 
             datasets=make_schedule(get_name(all_sections))
