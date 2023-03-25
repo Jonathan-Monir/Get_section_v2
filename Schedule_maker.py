@@ -108,7 +108,7 @@ if st.button("Submit"):
             st.write("Please enter a name")
 
         else:
-            
+            print(name)
             for file in files:
                     if file.endswith(".pdf"):
                         container.markdown("<span style='color:gray'>searching in "+ file.strip(".pdf")+" section..</span>", unsafe_allow_html=True)
