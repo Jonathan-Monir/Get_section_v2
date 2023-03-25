@@ -94,11 +94,11 @@ df = df.fillna('')
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 container = st.empty()
 name = st.text_input("Enter your name:")
-print(name)
 if st.button("Submit"):
     if not name:
         st.error("Please enter your name")
     else:
+        print(name)
         st.success(f"Hello {name}")
         st.write("This may take 1 or 2 minutes...")
         all_sections = list()
