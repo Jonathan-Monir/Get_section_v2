@@ -44,7 +44,7 @@ def make_schedule(section_names):
                 else:
                     all_sections.append(section)
         else:
-            print("empty")
+            print("")
     return all_sections
 
 def between(num1,num2,num3):
@@ -94,6 +94,7 @@ df = df.fillna('')
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 container = st.empty()
 name = st.text_input("Enter your name:")
+print(name)
 if st.button("Submit"):
     if not name:
         st.error("Please enter your name")
@@ -154,14 +155,14 @@ if st.button("Submit"):
                                                 
                                                 section_text = f"section: {rkm_el_section} in {file.strip('.')}"
                                                 
-                                                # print(section_text)
+                                                
                                                 all_sections.append(section_text)
                                             count_got +=1
                                         elif file == "Linear Algebra.pdf" and between(rkm_gloos,1,186):
                                             rkm_el_section=linear_alg_sec(rkm_gloos)
                                             if count_got==0:
                                                 section_text = f"section: {rkm_el_section} in {file.strip('.')}"
-                                                # print(section_text)
+                                                
                                                 all_sections.append(section_text)
                                                 
                                             count_got +=1
@@ -169,9 +170,9 @@ if st.button("Submit"):
                                             if count_got==0:
                                                 rkm_el_section = i.split(" ")[1]
                                                 section_text = f"section: {rkm_el_section} in {file.strip('.')}"
-                                                # print(section_text)
+                                                
                                                 all_sections.append(section_text)
-                                                print(all_sections)
+                                                print("")
                                                 
                                             count_got +=1
                                             
@@ -184,7 +185,7 @@ if st.button("Submit"):
 
 
             datasets=make_schedule(get_name(all_sections))
-            print(datasets)
+            
             combined_dataset=pd.concat(datasets)
 
             combined_dataset = combined_dataset.T
@@ -208,4 +209,3 @@ if st.button("Submit"):
             href = f'<a href="data:file/csv;base64,{b64}" download="data.csv">Download CSV file</a>'
             st.markdown(href, unsafe_allow_html=True)
             
-            print(combined_dataset)
