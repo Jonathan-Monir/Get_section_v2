@@ -92,10 +92,10 @@ df = df.fillna('')
 
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 container = st.empty()
-name = st.text_input("Enter your name:")
+name = st.text_input("Enter your seat number:")
 if st.button("Submit"):
     if not name:
-        st.error("Please enter your name")
+        st.error("Please enter seat number")
     else:
         print("***********************************")
         st.success(f"Hello {name}")
@@ -103,7 +103,7 @@ if st.button("Submit"):
         all_sections = list()
 
         if not name:
-            st.write("Please enter a name")
+            st.write("Please enter seat number")
 
         else:
             print(name)
