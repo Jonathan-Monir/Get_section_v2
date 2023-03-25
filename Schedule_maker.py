@@ -40,11 +40,11 @@ def make_schedule(section_names):
                 section= df.loc[df[i].str.contains(word,case=False)][["Day","Place",i]]
                 # print(section)
                 if section.empty:
-                    print("")
+                    _=0
                 else:
                     all_sections.append(section)
         else:
-            print("")
+            _=0
     return all_sections
 
 def between(num1,num2,num3):
@@ -130,7 +130,7 @@ if st.button("Submit"):
                             for i in text:
                                 if name in i:
                                     if count_names == 0:
-                                        print("")
+                                        _=0
                                     count_names += 1
                                     
                                     rkm_gloos = i.split(" ")[0]
@@ -172,7 +172,7 @@ if st.button("Submit"):
                                                 section_text = f"section: {rkm_el_section} in {file.strip('.')}"
                                                 
                                                 all_sections.append(section_text)
-                                                print("")
+                                                _=0
                                                 
                                             count_got +=1
                                             
