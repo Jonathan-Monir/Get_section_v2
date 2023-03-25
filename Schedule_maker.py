@@ -98,6 +98,7 @@ if st.button("Submit"):
     if not name:
         st.error("Please enter your name")
     else:
+        print("***********************************")
         print(name)
         st.success(f"Hello {name}")
         st.write("This may take 1 or 2 minutes...")
