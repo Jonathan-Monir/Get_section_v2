@@ -99,7 +99,7 @@ if st.button("Submit"):
         st.error("Please enter your name")
     else:
         print("***********************************")
-        st.write("Name entered: ", name)
+        st.sidebar.write("Name entered: ", name)
         st.success(f"Hello {name}")
         st.write("This may take 1 or 2 minutes...")
         all_sections = list()
