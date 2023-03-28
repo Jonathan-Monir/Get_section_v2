@@ -1,6 +1,7 @@
 # _Get_section_v2_
 ## Student Schedule Finder
-This is a simple Streamlit app that allows students to quickly find their schedules for each section in their university. The app takes the student's name or seat number as input and returns 
+Our University provides a pdf file for each subject where we have to find our subject's ID then our section number then the time of the section. I've made this app where the student types only his seat number and a full timetable for his unique schedule appears in the app for him.
+
 ## Installation
 To install the necessary dependencies, run:
 ```
